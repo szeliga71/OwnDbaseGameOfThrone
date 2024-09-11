@@ -1,7 +1,9 @@
-package pl.wp.gameofthroneapplication.connection;
+package pl.wp.owndbasegameofthrone.sourceConnection;
 
-import pl.wp.gameofthroneapplication.mapper.CharacterMapper;
-import pl.wp.gameofthroneapplication.model.Character;
+
+
+import pl.wp.owndbasegameofthrone.mapper.CharacterMapper;
+import pl.wp.owndbasegameofthrone.model.Character;
 
 import java.io.IOException;
 import java.net.URI;
@@ -11,7 +13,6 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.nio.charset.StandardCharsets;
-import java.util.List;
 
 public class CharacterAPIHandler {
     private final HttpClient client = HttpClient.newHttpClient();

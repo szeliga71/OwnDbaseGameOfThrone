@@ -1,8 +1,9 @@
-package pl.wp.gameofthroneapplication.connection;
+package pl.wp.owndbasegameofthrone.sourceConnection;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import pl.wp.gameofthroneapplication.mapper.BookMapper;
-import pl.wp.gameofthroneapplication.model.Book;
+
+
+import pl.wp.owndbasegameofthrone.mapper.BookMapper;
+import pl.wp.owndbasegameofthrone.model.Book;
 
 import java.io.IOException;
 import java.net.URI;

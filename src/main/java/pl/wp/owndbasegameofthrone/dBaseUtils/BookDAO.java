@@ -1,2 +1,4 @@
-package pl.wp.owndbasegameofthrone.dBaseUtils;public class BookDAO {
+package pl.wp.owndbasegameofthrone.dBaseUtils;
+
+public class BookDAO {
 }

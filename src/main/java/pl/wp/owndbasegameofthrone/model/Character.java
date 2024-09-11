@@ -1,4 +1,4 @@
-package pl.wp.gameofthroneapplication.model;
+package pl.wp.owndbasegameofthrone.model;
 
 import java.util.List;
 

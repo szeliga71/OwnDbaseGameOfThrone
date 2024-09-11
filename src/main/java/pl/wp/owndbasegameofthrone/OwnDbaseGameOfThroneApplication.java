@@ -10,4 +10,5 @@ public class OwnDbaseGameOfThroneApplication {
         SpringApplication.run(OwnDbaseGameOfThroneApplication.class, args);
     }
 
+
 }
