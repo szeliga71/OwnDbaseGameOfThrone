@@ -8,7 +8,6 @@ import java.util.List;
 
 
 @Entity
-
 //@JsonIgnoreProperties(ignoreUnknown = true)
 public class Book {
 

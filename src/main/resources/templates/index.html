@@ -5,20 +5,21 @@
     <title>Main Page</title>
     <script>
         function goToSaveBook(){
-            <!--window.location.href="saveBook";-->
-            window.location.href="books";
+            window.location.href="saveBook";
+        }
+        function goToSaveCharacter(){
+            window.location.href="saveCharacters";
         }
     </script>
 </head>
 <body>
 <H1>Main Page </H1>
 <br>
-<form action="#" th:action="@{/}" th:object="${bookList}" method="post">
+<!--<form action="#" th:action="@{/}" th:object="${bookList}" method="post">
     <input type="text" th:field="*{bookList}"/>
-    <button type="submit">Search</button>
+    <button type="submit">Search</button>-->
 </form>
-<button onclick="goToSaveBook_books()">Save books to Data Base</button>
-
-<button> </button>
+<button onclick="goToSaveBook()">Save books to Data Base</button>
+<button onclick="goToSaveCharacter()">Save characters to Data Base</button>
 </body>
 </html>

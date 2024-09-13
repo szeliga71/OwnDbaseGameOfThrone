@@ -1,22 +1,38 @@
 package pl.wp.owndbasegameofthrone.model;
 
+import jakarta.persistence.ElementCollection;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import java.util.List;
 
-public class Character {
+@Entity
+public class CharacterGoT {
 
+    @Id
+    private Long characterId;
     private String name;
     private String gender;
     private String culture;
+    @ElementCollection
     private List<String> titles;
+    @ElementCollection
     private List<String> aliases;
+    @ElementCollection
     private List<String> allegiances;
+    @ElementCollection
     private List<String> playedBy;
+    @ElementCollection
     private List<String>tvSeriesSeasons;
     private String mother;
     private String father;
     private String spouse;
 
-    public Character(String name, String gender, String culture, List<String> titles, List<String> aliases, List<String> allegiances, List<String> playedBy, List<String> tvSeriesSeasons, String mother, String father, String spouse) {
+
+    public CharacterGoT() {
+    }
+
+    public CharacterGoT(Long characterId,String name, String gender, String culture, List<String> titles, List<String> aliases, List<String> allegiances, List<String> playedBy, List<String> tvSeriesSeasons, String mother, String father, String spouse) {
+        this.characterId = characterId;
         this.name = name;
         this.gender = gender;
         this.culture = culture;
@@ -28,6 +44,14 @@ public class Character {
         this.mother = mother;
         this.father = father;
         this.spouse = spouse;
+    }
+
+    public Long getCharacterId() {
+        return characterId;
+    }
+
+    public void setCharacterId(Long characterId) {
+        this.characterId = characterId;
     }
 
     public String getName() {
