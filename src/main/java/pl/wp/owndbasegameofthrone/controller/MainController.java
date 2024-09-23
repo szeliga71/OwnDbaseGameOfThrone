@@ -31,13 +31,7 @@ public class MainController {
     public String getMainPage() {
         return "index";
     }
-   /*@PostMapping("/")
-    public String sendListOfBooks(Model model, @RequestParam("bookList")List<Book> bookList) {
-       List<Book> bookList = bookAPIHandler.getAllBooks();
-       bookService.saveBooks(bookList);
-       model.addAttribute("bookList", bookList);
-       return "books";
-    }*/
+
 
     @GetMapping("/saveBook")
     public String saveBook(Model model) {
@@ -53,9 +47,4 @@ public class MainController {
         return "saveCharacters";
     }
 
-  //  @PostMapping("/")
-    //public String saveBooksToMyDB(@ModelAttribute("books") List<Book> books){
-      //  bookService.saveBooks(books);
-        //return "books";
-    //}
 }
