@@ -1,4 +1,4 @@
-package pl.wp.gameofthroneapplication.mapper;
+package pl.wp.owndbasegameofthrone.mapper;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
@@ -6,8 +6,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import pl.wp.gameofthroneapplication.model.Character;
-
+import pl.wp.owndbasegameofthrone.model.CharacterGoT;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,7 +20,7 @@ public class CharacterMapper {
         mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         return mapper;
     }
-    public static Character jsonToCharacter(String json) throws JsonProcessingException {
+    public static CharacterGoT jsonToCharacter(String json) throws JsonProcessingException {
 
         JsonNode firstRootNode = mapper.readTree(json);
         JsonNode rootNode = null;
@@ -72,15 +71,24 @@ public class CharacterMapper {
         String father = rootNode.get("father").asText();
         String spouse = rootNode.get("spouse").asText();
 
-        return new Character(name, gender, culture, titles, aliases, allegiances, playedBy, tvSeriesSeasons, mother, father, spouse);
+        String url=rootNode.get("url").asText();
+        Long characterId = extractIdFromUrl(url);
+
+        return new CharacterGoT (characterId,name, gender, culture, titles, aliases, allegiances, playedBy, tvSeriesSeasons, mother, father, spouse);
+    }
+    private static Long extractIdFromUrl(String url) {
+        url = url.replace("\"", "");
+        int lastIndex = url.lastIndexOf('/') + 1;
+        return Long.parseLong(url.substring(lastIndex));
     }
 
-    public static List<Character> jsonToCharacterList(String json) throws JsonProcessingException {
+
+    public static List<CharacterGoT> jsonToCharacterList(String json) throws JsonProcessingException {
         JsonNode rootNode=mapper.readTree(json);
-        List<Character>characters=new ArrayList<>();
+        List<CharacterGoT>characters=new ArrayList<>();
         if(rootNode.isArray()) {
             for (JsonNode node : rootNode) {
-                characters.add(jsonToCharacter(node.toString()));
+                    characters.add(jsonToCharacter(node.toString()));
             }
         }
         return characters;

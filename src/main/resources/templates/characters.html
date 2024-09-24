@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th>characterId</th>
+        <th>name</th>
+        <th>gender</th>
+        <th>culture</th>
+        <th>titles</th>
+        <th>aliases</th>
+        <th>allegiances</th>
+        <th>played by</th>
+        <th>tv series seasons</th>
+        <th>mother</th>
+        <th>father</th>
+        <th>spouse</th>
+        <!--<th>Characters</th>-->
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${characterList.isEmpty()}">
+        <td colspan="2">No Books Available </td>
+    </tr>
+    <tr th:each="character,stat : ${characterList}">
+
+        <!--<td th:text="${stat.index +1}+'.'"></td>-->
+        <td><span th:text="${character.characterId}">characterId</span></td>
+        <td><span th:text="${character.name}">name</span></td>
+        <td><span th:text="${character.getGender()}">gender</span></td>
+        <td><span th:text="${character.getCulture()}">culture</span></td>
+        <td><span th:text="${character.getTitles()}">titles</span></td>
+        <td><span th:text="${character.getAliases()}">aliases</span></td>
+        <td><span th:text="${character.getAllegiances()}">allegiances</span></td>
+        <td><span th:text="${character.getPlayedBy()}">played by</span></td>
+        <td><span th:text="${character.getTvSeriesSeasons()}">tv seasons</span></td>
+        <td><span th:text="${character.getMother()}">mother</span></td>
+        <td><span th:text="${character.getFather()}">father</span></td>
+        <td><span th:text="${character.getSpouse()}">spouse</span></td>
+
+        <!--<td><a th:href="@{/character(id=${bookList.indexOf(book)+1})}">Deatails of Link</a></td>-->
+        <!-- <td><span th:text="${book.getCharacters()}">Characters</span></td>-->
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

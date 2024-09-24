@@ -4,22 +4,24 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pl.wp.owndbasegameofthrone.model.Book;
+import pl.wp.owndbasegameofthrone.model.CharacterGoT;
 import pl.wp.owndbasegameofthrone.repository.BookRepository;
+import pl.wp.owndbasegameofthrone.repository.CharacterRepository;
 
 import java.util.List;
 
 @Service
-public class BookService {
+public class CharacterService {
 
     @Autowired
-    private BookRepository bookRepository;
+    private CharacterRepository characterRepository;
 
     @Transactional
-    public void saveBooks(List<Book> books) {
-        bookRepository.saveAll(books);
+    public void saveCharacters(List<CharacterGoT>characters) {
+        characterRepository.saveAll(characters);
     }
     @Transactional
-    public List<Book>getAllBooks(){
-        return bookRepository.findAll();
+    public List<CharacterGoT>getAllCharacters(){
+        return characterRepository.findAll();
     }
 }

@@ -1,23 +1,34 @@
-package pl.wp.gameofthroneapplication.model;
+package pl.wp.owndbasegameofthrone.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import java.time.LocalDate;
+import jakarta.persistence.*;
+
 import java.time.LocalDateTime;
 import java.util.List;
 
-@JsonIgnoreProperties(ignoreUnknown = true)
+
+@Entity
+//@JsonIgnoreProperties(ignoreUnknown = true)
 public class Book {
 
+    @Id
+    @GeneratedValue
+    private long id;
     private String name;
     private String isbn;
+
+@ElementCollection
     private List<String> authors;
     private Integer numbersOfPages;
     private String publisher;
     private String countryOfOrigin;
     private LocalDateTime releaseDate;
+
+    @ElementCollection
     private List<String> characters;
 
+    public Book() {
+    }
 
     public Book(String name, String isbn, List<String> authors, Integer numbersOfPages, String publisher, String countryOfOrigin, LocalDateTime releaseDate, List<String> characters) {
         this.name = name;
